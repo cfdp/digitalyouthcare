@@ -14,6 +14,6 @@
 
 
 // Place your code here.
-
+$("#forum-0 .forum .name").append('<span></span>');
 
 })(jQuery, Drupal, this, this.document);

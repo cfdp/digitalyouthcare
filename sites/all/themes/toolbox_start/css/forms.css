@@ -142,3 +142,35 @@ form table .item-list ul {
 td.menu-disabled {
   background: #ccc;
 }
+body {
+	font-size: 14px;}
+/* Forum style*/
+
+#forum #forum-0 {
+	width: 940px;
+}
+
+#forum #forum-0 tbody tr{
+	background-color: #97B4CE;
+	color: #3C3C44;
+}
+
+#forum #forum-0 tbody tr td{
+	padding:10px;
+	font-weight:bold;
+	font-size:12px;
+}
+
+#forum #forum-0 tbody tr td .name a{
+	text-decoration: none;
+}
+
+#forum #forum-0 tbody tr td .name a:visited{
+	/*text-decoration: none;*/
+		color: #3C3C44;
+}
+
+#forum #forum-0 tbody tr td .name a:hover{
+	text-decoration: underline;
+}
+	

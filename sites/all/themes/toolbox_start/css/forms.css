@@ -142,35 +142,87 @@ form table .item-list ul {
 td.menu-disabled {
   background: #ccc;
 }
-body {
-	font-size: 14px;}
+
 /* Forum style*/
 
-#forum #forum-0 {
+#forum table {
 	width: 940px;
 }
 
-#forum #forum-0 tbody tr{
-	background-color: #97B4CE;
-	color: #3C3C44;
+#forum table .icon {
+	width: 24px;
+	height: 24px;
 }
 
-#forum #forum-0 tbody tr td{
+#forum table .icon div {
+	margin-left: 8px;
+}
+
+#forum thead tr{
+	background-color: #8B8989;
+	color: #000;
+	border: 1px solid #fff;
+	height: 63px;
+}
+
+#forum tbody tr{
+	background-color: #C0C0C0;
+	color: #000;
+	border: 1px solid #fff;
+	height: 63px;
+}
+
+#forum tbody tr td{
 	padding:10px;
 	font-weight:bold;
 	font-size:12px;
 }
 
-#forum #forum-0 tbody tr td .name a{
-	text-decoration: none;
+#forum .title_topic {
+	width:570px;
 }
 
-#forum #forum-0 tbody tr td .name a:visited{
+#forum .replies_topic {
+	width:50px;
+}
+
+#forum .head_title {
+	font-size: 14px;	
+}
+
+#forum .created_topic {
+	font-size: 10px;
+	font-weight: 100;
+	font-style: italic;	
+}
+
+#forum tbody tr td a, #forum thead tr th a {
+	text-decoration: none;
+	color: #3C3C44;
+}
+
+#forum tbody tr td a:visited, #forum thead tr a:visited{
 	/*text-decoration: none;*/
 		color: #3C3C44;
 }
 
-#forum #forum-0 tbody tr td .name a:hover{
+#forum tbody tr td a:link, #forum thead tr a:link{
+	/*text-decoration: none;*/
+		color: #3C3C44;
+}
+
+#forum tbody tr td a:active, #forum thead tr a:active{
+	/*text-decoration: none;*/
+		color: #3C3C44;
+}
+
+#forum tbody tr td a:hover, #forum thead tr a:hover{
 	text-decoration: underline;
 }
-	
+
+
+/*  Keep at end  */	
+
+#forum thead th:first-child + th a {
+	margin-left: 8px;
+}

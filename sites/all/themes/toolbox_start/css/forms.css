@@ -174,20 +174,24 @@ td.menu-disabled {
 
 #forum tbody tr td{
 	padding:10px;
-	font-weight:bold;
-	font-size:12px;
+	font-weight:500;
+	font-size:11px;
 }
 
 #forum .title_topic {
-	width:570px;
+	width:550px;
 }
 
 #forum .replies_topic {
-	width:50px;
+	width:65px;
+}
+
+#forum thead th {
+	padding-left: 8px;
 }
 
 #forum .head_title {
-	font-size: 14px;	
+	font-size: 13px;	
 }
 
 #forum .created_topic {
@@ -220,9 +224,6 @@ td.menu-disabled {
 	text-decoration: underline;
 }
 
-
-/*  Keep at end  */	
-
-#forum thead th:first-child + th a {
-	margin-left: 8px;
+#forum .go_bold td{
+	font-weight:bold;
 }

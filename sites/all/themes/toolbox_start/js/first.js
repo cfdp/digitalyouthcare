@@ -1,7 +1,14 @@
-(function () {
+(function($) {
+Drupal.behaviors.myBehavior = {
+  attach: function (context, settings) {
 
-
-// Place your code here.
-//$("#forum-0 .forum .name").append('<span></span>');
-$("body").css("color","red");
-})(jQuery);
+//$("#forum tbody tr").addClass("go_bold");
+ 
+ if ($("#forum .icon").hasClass("forum-status-new"))  {
+     ($("#forum tbody tr:has(.forum-status-new)").addClass("go_bold"));
+ }
+ 
+if ($("#forum .icon div").hasClass("topic-status-new"))  {
+     ($("#forum tbody tr:has(.topic-status-new)").addClass("go_bold"));
+ }     
+  }}})(jQuery);

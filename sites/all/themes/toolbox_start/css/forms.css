@@ -227,3 +227,32 @@ td.menu-disabled {
 #forum .go_bold td{
 	font-weight:bold;
 }
+
+#forum tr .forum {
+	width:545px;
+}
+
+#forum tr .topics {
+	width:57px;
+}
+
+#forum tr .posts {
+	width:50px;
+}
+
+#forum tr .forum, #forum tr .topics, #forum tr .posts, #forum tr .last-reply {
+	font-size:12px;
+}
+
+#forum thead .forum_header_forum {
+	padding-left:43px;
+}
+
+
+
+
+article.comment {
+	background-color: #C0C0C0;
+	color: #000;
+	border: 1px solid #fff;
+}

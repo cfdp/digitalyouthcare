@@ -249,10 +249,50 @@ td.menu-disabled {
 }
 
 
+/* ** Comment and description topics ** */
 
+article.node header, article.node div.field.field-name-taxonomy-forums {
+	background-color: #8B8989;
+	color: #000;
+	border: 1px solid #fff;
+	padding:15px;
+	height: 65px;
+	font-weight:bold;
+}
 
-article.comment {
+article.node header a, article.node div.field.field-name-taxonomy-forums a {
+	text-decoration: none;
+	color: #3C3C44;
+}
+
+article.node .field-name-body .field-item, article.node .field-name-comment-body .field-item {
 	background-color: #C0C0C0;
 	color: #000;
 	border: 1px solid #fff;
+	padding:15px;
+	font-size:12px;
+	text-indent: 10px;
+}
+
+article.node header a:visited, article.node div.field.field-name-taxonomy-forums a:visited {
+	color: #3C3C44;
+}
+
+article.node header a:link, article.node div.field.field-name-taxonomy-forums a:link {
+	color: #3C3C44;
+}
+
+
+article.node header a:active, article.node div.field.field-name-taxonomy-forums a:active {
+	color: #3C3C44;
+}
+
+
+article.node header a:hover, article.node div.field.field-name-taxonomy-forums a:hover {
+	text-decoration: underline;
+}
+
+
+article.node header p, article.node header h3 {
+	margin: 0;
 }

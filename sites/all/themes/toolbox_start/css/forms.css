@@ -146,7 +146,7 @@ td.menu-disabled {
 /* Forum style*/
 
 #forum table {
-	width: 940px;
+	width: 100%;
 }
 
 #forum table .icon {
@@ -233,11 +233,11 @@ td.menu-disabled {
 }
 
 #forum tr .topics {
-	width:57px;
+	max-width:57px;
 }
 
 #forum tr .posts {
-	width:50px;
+	max-width:50px;
 }
 
 #forum tr .forum, #forum tr .topics, #forum tr .posts, #forum tr .last-reply {

@@ -251,13 +251,15 @@ td.menu-disabled {
 
 /* ** Comment and description topics ** */
 
-article.node header, article.node div.field.field-name-taxonomy-forums {
+article.node header, article.node div.field.field-name-taxonomy-forums, .title.comment-form {
 	background-color: #8B8989;
 	color: #000;
 	border: 1px solid #fff;
 	padding:15px;
-	height: 65px;
+	height: auto;
 	font-weight:bold;
+	margin-top: 25px;
+	border-radius: 4px;
 }
 
 article.node header a, article.node div.field.field-name-taxonomy-forums a {
@@ -265,13 +267,18 @@ article.node header a, article.node div.field.field-name-taxonomy-forums a {
 	color: #3C3C44;
 }
 
-article.node .field-name-body .field-item, article.node .field-name-comment-body .field-item {
+article.node .field-name-body .field-item, article.node .field-name-comment-body .field-item, .comment-form {
 	background-color: #C0C0C0;
 	color: #000;
 	border: 1px solid #fff;
 	padding:15px;
 	font-size:12px;
 	text-indent: 10px;
+	border-radius: 4px;
+}
+
+article.node .field-name-comment-body .field-item p, article.node .field-name-body .field-item p  {
+	margin: 10px;
 }
 
 article.node header a:visited, article.node div.field.field-name-taxonomy-forums a:visited {
@@ -296,3 +303,70 @@ article.node header a:hover, article.node div.field.field-name-taxonomy-forums a
 article.node header p, article.node header h3 {
 	margin: 0;
 }
+
+article.node .field-name-taxonomy-forums .field-label, article.node .field-name-taxonomy-forums .field-items {
+	display: inline-block;
+}
+
+article.node header .submitted_header, article.node header .submitted {
+	font-size: 11px;
+	font-weight: 100;
+	font-style: italic;	
+}
+
+.field-name-body {
+	margin-bottom:20px;
+}
+
+.field-name-comment-body {
+	margin-bottom: 5px;
+}
+
+.comment-add a {
+	border: 2px solid #333;
+	padding:10px;
+	text-decoration: none;
+	border-radius: 4px;
+	font-weight: bold;
+	background-color: #8B8989;
+}
+
+.links.inline li {
+	padding: 0 0 0 10px;
+}
+
+.links.inline .comment-edit a, .links.inline .comment-delete a, .links.inline .comment-reply a {
+	border: 1px solid #333;
+	padding: 5px 15px 5px 15px;
+	text-decoration: none;
+	border-radius: 4px;
+	font-size:12px;
+	font-weight: bold;
+	color: #000;
+	background-color: #CCC;
+}
+
+.comment-add a:hover, .links.inline a:hover{
+	background-color: #C0C0C0;
+}
+
+.comment-form .form-item.form-type-item a {
+	text-decoration: none;
+	color: #3C3C44;
+	font-weight:bold;
+	margin-left: 10px;
+}
+
+.comment-form .form-item.form-type-item a:hover {
+	text-decoration: underline;
+}
+
+/* ** New forums block in the sidebar ** */
+/*
+#block-forum-new {
+	background-color: #C0C0C0;
+	border: 1px solid #fff;
+	padding:15px;
+	font-weight:bold;
+	border-radius: 4px;
+}*/

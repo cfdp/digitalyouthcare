@@ -329,6 +329,18 @@ article.node header .submitted_header, article.node header .submitted {
 	border-radius: 4px;
 	font-weight: bold;
 	background-color: #8B8989;
+	color: #000;
+	float: right;
+}
+
+.node-readmore a {
+	border: 2px solid #333;
+	padding:10px;
+	text-decoration: none;
+	border-radius: 4px;
+	font-weight: bold;
+	background-color: #8B8989;
+	color: #000;
 }
 
 .links.inline li {
@@ -361,12 +373,122 @@ article.node header .submitted_header, article.node header .submitted {
 	text-decoration: underline;
 }
 
+article .field-name-body a {
+	color:#000;
+}
+
+/** Secondary menu up on the right side **/
+#secondary-menu ul li a {
+	border: 1px solid #333;
+	padding: 5px;
+	text-decoration: none;
+	border-radius: 4px;
+	font-size:12px;
+	font-weight: bold;
+	color: #000;
+	background-color: #CCC;
+}
+
+#secondary-menu ul li a:hover{
+	background-color: #C0C0C0;
+}
+
+#secondary-menu ul li {
+	padding: 0;
+}
+
 /* ** New forums block in the sidebar ** */
-/*
+
 #block-forum-new {
 	background-color: #C0C0C0;
 	border: 1px solid #fff;
-	padding:15px;
-	font-weight:bold;
+	font-size: 12px;
 	border-radius: 4px;
-}*/
+}
+
+#block-forum-new .block-title {
+	text-align: center;
+	background-color: #8B8989;
+	padding: 10px;
+	border-radius: 4px 4px 0 0;
+	font-size: 14px;
+}
+
+#block-forum-new .item-list {
+	padding: 5px;	
+}
+
+#block-forum-new .item-list li {
+	margin-bottom: 10px;
+}
+
+#block-forum-new .item-list li a {
+	color: #000;
+	text-decoration: none; 
+}
+
+#block-forum-new .item-list li a:hover {
+	text-decoration: underline;	
+}
+
+#block-forum-new .item-list li a:visited {
+	font-weight: 100;	
+}
+
+#block-forum-new .more-link {
+	margin: 0 10px 10px 0;
+}
+
+#block-forum-new .more-link a {
+	border: 1px solid #333;
+	padding: 5px;
+	text-decoration: none;
+	border-radius: 4px;
+	font-size:12px;
+	font-weight: bold;
+	color: #000;
+	background-color: #CCC;
+}
+
+#block-forum-new .more-link a:hover{
+	background-color: #C0C0C0;
+}
+
+/* ** Join us block in the sidebar ** */
+.region-sidebar-second #block-block-1 {
+	background-color: #C0C0C0;
+	border: 1px solid #fff;
+	font-size: 12px;
+	border-radius: 4px;
+	padding-bottom: 40px;
+}
+
+.region-sidebar-second #block-block-1 .block-title {
+	text-align: center;
+	background-color: #8B8989;
+	padding: 10px;
+	border-radius: 4px 4px 0 0;
+	font-size: 14px;
+}
+
+.region-sidebar-second #block-block-1 p {
+	padding: 5px 10px 5px 15px;
+	text-indent: 10px;	
+}
+
+.region-sidebar-second #block-block-1 p a {
+	float:right;
+	margin-top:20px;
+	border: 1px solid #333;
+	padding: 5px;
+	text-decoration: none;
+	border-radius: 4px;
+	font-size:12px;
+	font-weight: bold;
+	color: #000;
+	background-color: #CCC;
+}
+
+.region-sidebar-second #block-block-1 p a:hover {
+	background-color: #C0C0C0;	
+}

@@ -177,12 +177,12 @@
   <div style="">
 	<div style="float:left">
      	<a href="htts://www.child.be">
-        	<img src="sites/all/themes/toolbox_start/newpic/child-focus.png" >
+        	<img src="/sites/all/themes/toolbox_start/newpic/child-focus.png" >
 		</a>
     </div>
     <div style="float:left">
       	<a href="htts://www.cfdp.dk">
- 	       <img src="sites/all/themes/toolbox_start/newpic/cfdp_logo_310x50.png" >
+ 	       <img src="/sites/all/themes/toolbox_start/newpic/cfdp_logo_310x50.png" >
       	</a>
     </div>
   </div>

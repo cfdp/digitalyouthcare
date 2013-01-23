@@ -7,7 +7,20 @@
 #nav.sf-menu a:visited {
   font-size: 17px;
 }
+/*
+  display: inline-block; 
+  border: 1px solid silver; 
+  list-style:none; 
+  margin: 0 10px; 
+  padding: 5px 2px;
+}
 
-li.call-to-action {display: inline-block; border: 1px solid silver; list-style:none; margin: 0 10px; padding: 5px 2px;}
-a.call-to-action-btn {background: rgb(151,170,187); border-radius: 3px; display: inline-block; font-size: 20px; margin: 0 3px;  padding: 5px 2px;}
-
+a.call-to-action-btn {
+  background: rgb(151,170,187); 
+  border-radius: 3px; 
+  display: inline-block; 
+  font-size: 20px; 
+  margin: 0 3px;  
+  padding: 5px 2px;
+}
+*/

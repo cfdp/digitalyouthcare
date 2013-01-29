@@ -5,11 +5,41 @@
 
 li.call-to-action {display: inline-block; border: 1px solid silver; list-style:none; margin: 0 10px; padding: 5px 2px;}
 a.call-to-action-btn {background: rgb(151,170,187); border-radius: 3px; display: inline-block; font-size: 20px; margin: 0 3px;  padding: 5px 2px;}
+/*Reduce size of landing page slider*/
+
+#slider-inner
+{
+	min-height: 320px;
+}
+.flex-viewport
+{
+	height: 320px;
+}
+
+/*=======================================================*/
+
+/*Minimize slider pation area */
+
+.slides li .flex-caption
+{
+	top: 50%;
+	margin: 0 0 0 100px;
+	padding: 10px 30px 0;
+	width: 890px;
+}
+
+.slides li .flex-caption .flex-caption-title
+{
+	padding-bottom: 5px;
+}
+/*=======================================================*/
 
 /*Move the read more button in the slides on the homepage*/
 .slides li .flex-caption .flex-caption-link
 {
-	float: right;
+	position: absolute;
+	top: 27px;
+	right: 30px;
 }
 
 /*=======================================================*/

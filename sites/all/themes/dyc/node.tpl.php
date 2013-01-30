@@ -1,5 +1,4 @@
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> <?php print "iteration-$id"; ?>"<?php print $attributes; ?>>
-<?php dpm($variables);?>
 <?php print render($title_prefix); ?>
 <?php if ($page == 0): ?>
   <h2 class="title"><a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print $title ?></a></h2>

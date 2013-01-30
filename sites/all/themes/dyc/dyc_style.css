@@ -87,3 +87,27 @@ a.call-to-action-btn {background: rgb(151,170,187); border-radius: 3px; display:
 }
 
 /*=======================================================*/
+
+/* Footer menu links */
+
+#footer-region ul
+{
+	margin: 0;
+}
+
+#footer-region ul li
+{
+	list-style: none;
+}
+
+#footer-region ul li a,
+#footer-region ul li a:visited
+{
+	color: rgb(236,236,236);
+}
+
+#footer-region ul li a:hover
+{
+	color: rgb(206,206,206);
+}
+/*=======================================================*/

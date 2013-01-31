@@ -19,7 +19,7 @@
 	margin: 0;
 	padding: 10px;
 }
-
+/*================================*/
 
 /* Mouse hover styling adds a blue vertical line on the left side of the list item */
 #block-views-articles-block-2 .item-list ul li:hover,
@@ -27,6 +27,36 @@
 {
 	border-left: 3px solid rgb(73,115,185);
 	padding-left: 7px;
+}
+
+/*================================*/
+
+/* User directory block */
+
+#block-views-user-directory-block-1 .views-row
+{
+	margin: 5px 0;
+	overflow: hidden;
+}
+
+#block-views-user-directory-block-1 .views-row .views-field-picture
+{
+	display: inline-block;
+	float: left;
+	width: 50px;
+}
+
+#block-views-user-directory-block-1 .views-row .views-field-field-last-name,
+#block-views-user-directory-block-1 .views-row .views-field-field-profile-organisation
+{
+	display: inline-block;
+	margin-left: 10px;
+}
+
+#block-views-user-directory-block-1 .views-row .views-field-field-profile-organisation a
+{
+	color: rgb(126,126,126);
+	font-size: 11px;
 }
 
 /*================================*/

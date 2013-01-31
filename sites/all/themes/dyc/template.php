@@ -12,12 +12,12 @@
 // load css files
 drupal_add_css(drupal_get_path('theme', 'icompany') .'/css/bootstrap.css',  array(  'group' => 'CSS_THEME', 'weight' => 93));
 drupal_add_css(drupal_get_path('theme', 'icompany') .'/style.css',  array(  'group' => 'CSS_THEME', 'weight' => 96));
-drupal_add_css(drupal_get_path('theme', 'icompany') .'/css/bootstrap-responsive.css',  array(  'group' => 'CSS_THEME', 'weight' => 99));
+//drupal_add_css(drupal_get_path('theme', 'icompany') .'/css/bootstrap-responsive.css',  array(  'group' => 'CSS_THEME', 'weight' => 99));
 
 
 
 // load js files v@1.8.1 jquery
-drupal_add_js(drupal_get_path('theme', 'icompany') . '/js/jquery.min.js', array('type' => 'file', 'scope' => 'header', 'group' => 'JS_LIBRARY', 'weight' => 0));
+//drupal_add_js(drupal_get_path('theme', 'icompany') . '/js/jquery.min.js', array('type' => 'file', 'scope' => 'header', 'group' => 'JS_LIBRARY', 'weight' => 0));
 
 // Misc
 drupal_add_js(drupal_get_path('theme', 'icompany') . '/js/bootstrap.js', array('type' => 'file', 'scope' => 'footer', 'group' => 'JS_LIBRARY', 'weight' => 20));

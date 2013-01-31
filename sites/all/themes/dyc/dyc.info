@@ -6,6 +6,7 @@ engine = phptemplate
 base theme = icompany
 
 stylesheets[all][] = dyc_style.css
+stylesheets[all][] = blocks.css
 
 
 ; Important Drupal regions

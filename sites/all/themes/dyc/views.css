@@ -1,1 +1,63 @@
 /* CSS for views on DYC */
+
+/* List of organisations */
+
+.view-organizations .views-row
+{
+        display: inline-block;
+        float: left;
+        max-width: 33%;
+        min-width: 22%;
+}
+
+.view-organizations .views-row-even
+{
+        margin: 0 25px;
+}
+
+.view-organizations .views-row .views-field-field-logo
+{
+        min-height: 100px;
+        width: 200px;
+}
+
+.view-organizations .ui-accordion-header
+{
+        background: transparent;
+        font-size: 120%;
+}
+.view-organizations .ui-accordion-header:hover
+{
+        border: 1px solid rgb(73,115,185);
+}
+
+.view-organizations .ui-accordion-header:hover.ui-state-active
+{
+        border-color: rgb(170,170,170);
+}
+
+.view-organizations .ui-accordion-header.ui-state-active
+{
+        background: rgb(183,183,183);
+}
+
+.view-organizations .views-row .views-field-field-observer-member
+{
+	color: rgb(126,126,126);
+	font-size: 11px;
+}
+
+.view-organizations .views-row .views-field-field-contact-person,
+.view-organizations .views-row .views-field-field-email
+{
+	color: rgb(73,115,185);
+	font-size: 12px;
+}
+.view-organizations .views-row .views-field-title,
+.view-organizations .views-row .views-field-field-observer-member,
+.view-organizations .views-row .views-field-field-contact-person,
+.view-organizations .views-row .views-field-field-email
+{
+	margin-top: 5px;
+}
+/*=======================================================*/

@@ -60,3 +60,33 @@
 }
 
 /*================================*/
+
+/* Footer menu links */
+
+#footer-left h5
+{
+	margin: 10px 0;
+}
+
+#footer-left ul
+{
+        margin: 0;
+}
+
+#footer-left ul li
+{
+        list-style: none;
+}
+
+#footer-left ul li a,
+#footer-left ul li a:visited
+{
+        color: rgb(236,236,236);
+}
+
+#footer-left ul li a:hover
+{
+        color: rgb(206,206,206);
+}
+/*=======================================================*/
+

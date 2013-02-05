@@ -9,10 +9,12 @@
 			// Show each answer when it's question is clicked and hide it back again 
 			$('.question').toggle(
 			function(){
+				$(this).parent().addClass('active');
 				$(this).parent().children('.answer').slideDown();
 			},
 			function(){
 				$(this).parent().children('.answer').slideUp();
+				$(this).parent().removeClass('active');
 			});
 		}
 	}

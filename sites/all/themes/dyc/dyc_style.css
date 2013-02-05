@@ -42,3 +42,37 @@
 }
 
 /*=======================================================*/
+
+
+/*FAQ toggle style question and answer*/
+
+.faq
+{
+	list-style: none;
+}
+
+.faq li:hover
+{
+	outline: 1px solid rgb(160,160,160);
+}
+
+.faq .question
+{
+	margin: 0;
+	padding: 10px 15px;
+}
+
+.faq .question:hover
+{
+	background: rgb(180,180,180);
+	color: rgb(255,255,255);
+	cursor: pointer;
+}
+
+.faq .answer
+{
+        background: rgb(243,243,243);
+        padding: 15px;
+}
+
+/*=======================================================*/

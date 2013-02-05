@@ -74,9 +74,13 @@
 
 .faq .answer
 {
-        background: rgb(243,243,243);
+        background: rgb(226,226,226);
 	color: rgb(111,111,111);
         padding: 15px;
 }
 
+.faq .answer:hover
+{
+	cursor: initial;
+}
 /*=======================================================*/

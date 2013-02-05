@@ -7,18 +7,27 @@
         display: inline-block;
         float: left;
         max-width: 33%;
-        min-width: 22%;
+	min-height: 250px;
+}
+
+/*This is for the members page, we need a lower min-height as we have smaller thumbs on this page*/
+
+.view-organizations.view-display-id-page_1 .views-row
+{
+	min-height: 200px;
 }
 
 .view-organizations .views-row-even
 {
-        margin: 0 25px;
+        border-left: 1px solid rgb(226,226,226);
+        border-right: 1px solid rgb(226,226,226);
+	margin: 0 20px;
+        padding: 0 20px;
 }
 
-.view-organizations .views-row .views-field-field-logo
+.view-organizations .views-row-even.views-row-last
 {
-        min-height: 100px;
-        width: 200px;
+        border-right-width: 0;
 }
 
 .view-organizations .ui-accordion-header
@@ -26,9 +35,15 @@
         background: transparent;
         font-size: 120%;
 }
+
 .view-organizations .ui-accordion-header:hover
 {
         border: 1px solid rgb(73,115,185);
+}
+
+.view-organizations .ui-accordion-header.ui-state-active a
+{
+	color: rgb(255,255,255);
 }
 
 .view-organizations .ui-accordion-header:hover.ui-state-active
@@ -38,26 +53,43 @@
 
 .view-organizations .ui-accordion-header.ui-state-active
 {
-        background: rgb(183,183,183);
+        background: rgb(73,115,185);
 }
 
-.view-organizations .views-row .views-field-field-observer-member
+.view-organizations .views-row .views-label
 {
 	color: rgb(126,126,126);
 	font-size: 11px;
 }
 
-.view-organizations .views-row .views-field-field-contact-person,
-.view-organizations .views-row .views-field-field-email
+
+.view-organizations .views-row .field-content
 {
 	color: rgb(73,115,185);
 	font-size: 12px;
 }
-.view-organizations .views-row .views-field-title,
-.view-organizations .views-row .views-field-field-observer-member,
-.view-organizations .views-row .views-field-field-contact-person,
-.view-organizations .views-row .views-field-field-email
+
+.view-organizations .views-row .views-field
 {
 	margin-top: 5px;
+}
+
+.view-organizations .views-row .views-field-field-logo
+{
+	min-height: 200px;
+	margin-top: 0;
+	width: 200px;
+}
+/* Specific overwrite for the members page as it has smaller thumbs, we decrease min-height just for that view display*/
+
+.view-organizations.view-display-id-page_1 .views-row .views-field-field-logo
+{
+	min-height: 100px;
+}
+
+
+.view-organizations .views-row .views-field-title
+{
+	max-width: 200px;
 }
 /*=======================================================*/

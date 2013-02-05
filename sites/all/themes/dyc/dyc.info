@@ -10,6 +10,10 @@ stylesheets[all][] = blocks.css
 stylesheets[all][] = views.css
 
 
+;Scripts
+scripts[] = js/custom.js
+
+
 ; Important Drupal regions
 regions[help] = Help
 regions[content] = content

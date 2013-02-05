@@ -51,7 +51,9 @@
 	list-style: none;
 }
 
-.faq li:hover
+.faq li:hover,
+.faq li.active
+
 {
 	outline: 1px solid rgb(160,160,160);
 }
@@ -62,7 +64,8 @@
 	padding: 10px 15px;
 }
 
-.faq .question:hover
+.faq .question:hover,
+.faq .active
 {
 	background: rgb(180,180,180);
 	color: rgb(255,255,255);
@@ -72,6 +75,7 @@
 .faq .answer
 {
         background: rgb(243,243,243);
+	color: rgb(111,111,111);
         padding: 15px;
 }
 

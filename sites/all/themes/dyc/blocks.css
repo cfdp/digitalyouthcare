@@ -1,4 +1,9 @@
 /*CSS for styling the blocks on DYC*/
+/*General blocks styles*/
+#zone2 .block
+{
+	padding: 0 20px 25px 20px;
+}
 
 /* Recent content block */
 
@@ -11,6 +16,7 @@
 /* Sidebar blocks */
 /* Remove line numbers, add more vertical spacing */
 
+#block-views-articles-block-1 .item-list ul li,
 #block-views-articles-block-2 .item-list ul li,
 #block-forum-new .item-list ul li
 {
@@ -22,6 +28,7 @@
 /*================================*/
 
 /* Mouse hover styling adds a blue vertical line on the left side of the list item */
+#block-views-articles-block-1 .item-list ul li:hover,
 #block-views-articles-block-2 .item-list ul li:hover,
 #block-forum-new .item-list ul li:hover
 {

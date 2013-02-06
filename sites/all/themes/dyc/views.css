@@ -1,5 +1,18 @@
 /* CSS for views on DYC */
 
+.view-header
+{
+	background: rgb(238,238,238);
+	border-left: 3px solid rgb(73,115,185);
+	padding: 10px 0 10px 7px;
+}
+
+#zone2 .view-header p
+{
+	margin: 0;
+}
+
+
 /* List of organisations */
 
 .view-organizations .views-row
@@ -93,3 +106,37 @@
 	max-width: 200px;
 }
 /*=======================================================*/
+
+/* Style the knowledge base list of articles */
+
+.view-id-articles .views-row
+{
+	border-bottom: 1px solid rgb(226,226,226);
+	overflow: hidden;
+	padding: 30px 0 15px;
+}
+
+.view-id-articles .views-field-title h2
+{
+	margin-top: 0;
+}
+
+.view-id-articles .views-field-field-tags
+{
+	float: right;
+	margin-top: 15px;
+}
+
+.view-id-articles .views-field-field-tags a
+{
+	border-radius: 4px;
+	padding: 3px 6px;
+}
+
+.view-id-articles .views-field-field-tags a:hover
+{
+	background: rgb(226,226,226);
+}
+
+
+/*===========================================*/

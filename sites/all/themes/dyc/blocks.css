@@ -28,7 +28,9 @@
 /*================================*/
 
 /* Mouse hover styling adds a blue vertical line on the left side of the list item */
+/* When viewing one of the article, style that one in the list to look like the hover state */
 #block-views-articles-block-1 .item-list ul li:hover,
+#block-views-articles-block-1 .item-list ul li.active,
 #block-views-articles-block-2 .item-list ul li:hover,
 #block-forum-new .item-list ul li:hover
 {
@@ -38,6 +40,15 @@
 
 /*================================*/
 
+/* Style for active links inside the blocks */
+
+#block-views-articles-block-1 .item-list ul li a.active:hover,
+#block-views-articles-block-2 .item-list ul li a.active:hover
+{
+	cursor: default;
+}
+
+/*================================*/
 /* User directory block */
 
 #block-views-user-directory-block-1 .views-row

@@ -16,6 +16,10 @@
 				$(this).parent().children('.answer').slideUp();
 				$(this).parent().removeClass('active');
 			});
+
+			// Add active class to list items in the recent article block to help style the current article
+
+			$('.view-display-id-block_1 li a.active').parents('li').addClass('active');
 		}
 	}
 })(jQuery);

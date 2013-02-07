@@ -1,6 +1,6 @@
 /* custom changes to icompany theme by CfDP */
 #site-name {
-    font-size: 36px;
+  font-size: 36px;
 }
 
 /*Reduce size of landing page slider*/
@@ -84,3 +84,8 @@
 	cursor: initial;
 }
 /*=======================================================*/
+#nav.sf-menu a, 
+#nav.sf-menu a:visited {
+  font-size: 17px;
+}
+

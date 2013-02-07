@@ -2,7 +2,9 @@
 /*General blocks styles*/
 #zone2 .block
 {
-	padding: 0 20px 25px 20px;
+	border-bottom-width: 0;
+	margin: 0 20px 20px;
+	padding: 0 0 10px 0;
 }
 
 /* Recent content block */
@@ -16,23 +18,37 @@
 /* Sidebar blocks */
 /* Remove line numbers, add more vertical spacing */
 
-#block-views-articles-block-1 .item-list ul li,
-#block-views-articles-block-2 .item-list ul li,
-#block-forum-new .item-list ul li
+#block-views-articles-block-1 .item-list li,
+#block-views-articles-block-2 .item-list li,
+#block-forum-new .item-list li,
+#block-user-online .item-list li
 {
 	border-bottom: 1px solid rgb(226,226,226);
 	list-style: none;
 	margin: 0;
 	padding: 10px;
 }
+
+/* Remove the bottom border of the last item in the list */
+
+#block-views-articles-block-1 .item-list ul li.views-row-last,
+#block-views-articles-block-2 .item-list ul li.views-row-last,
+#block-forum-new .item-list ul li.views-row-last,
+#block-forum-new .item-list ul li.last
+{
+	border-bottom-width: 0;
+}
+
 /*================================*/
 
 /* Mouse hover styling adds a blue vertical line on the left side of the list item */
 /* When viewing one of the article, style that one in the list to look like the hover state */
-#block-views-articles-block-1 .item-list ul li:hover,
-#block-views-articles-block-1 .item-list ul li.active,
-#block-views-articles-block-2 .item-list ul li:hover,
-#block-forum-new .item-list ul li:hover
+#block-node-recent tr:hover,
+#block-views-articles-block-1 .item-list li:hover,
+#block-views-articles-block-1 .item-list li.active,
+#block-views-articles-block-2 .item-list li:hover,
+#block-forum-new .item-list li:hover,
+#block-user-online .item-list li:hover
 {
 	border-left: 3px solid rgb(73,115,185);
 	padding-left: 7px;
@@ -53,8 +69,20 @@
 
 #block-views-user-directory-block-1 .views-row
 {
-	margin: 5px 0;
 	overflow: hidden;
+	padding: 5px;
+}
+
+#block-views-user-directory-block-1 .views-row:hover
+{
+	border-left: 3px solid rgb(73,115,185);
+	padding-left: 2px;
+}
+
+#block-views-user-directory-block-1 .views-row-even
+{
+	border-top: 1px solid rgb(226,226,226);
+	border-bottom: 1px solid rgb(226,226,226);
 }
 
 #block-views-user-directory-block-1 .views-row .views-field-picture
@@ -69,6 +97,7 @@
 {
 	display: inline-block;
 	margin-left: 10px;
+	width: 70%;
 }
 
 #block-views-user-directory-block-1 .views-row .views-field-field-profile-organisation a

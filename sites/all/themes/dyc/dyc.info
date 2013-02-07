@@ -8,6 +8,7 @@ base theme = icompany
 stylesheets[all][] = dyc_style.css
 stylesheets[all][] = blocks.css
 stylesheets[all][] = views.css
+stylesheets[all][] = forum.css
 
 
 ;Scripts

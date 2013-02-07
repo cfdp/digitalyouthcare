@@ -1,0 +1,42 @@
+/* Styles for the forum*/
+
+/* Reposition the add new forum xxx buttom */
+
+.page-forum #zone2 ul.links
+{
+	list-style: none;
+	overflow: hidden;
+}
+
+.page-forum #zone2 ul.links li
+{
+	float: right;
+	margin-right: 20px; 
+}
+
+/*========================================*/
+
+
+/* Style forum subforum page, list of topics */
+
+.page-forum #zone2 #forum-0 .forum .name,
+.page-forum.page-forum- #zone2 #forum td.title div>a
+{
+	font-size: 22px;
+}
+
+.page-forum.page-forum- #zone2 #forum td.title div span
+{
+	font-size: 11px;
+}
+
+.page-forum #zone2 #forum-0 tr .forum
+{
+	padding: 20px 0 20px 10px
+}
+
+.page-forum #zone2 #forum tr td
+{
+	padding: 20px 0;
+}
+/*========================================*/

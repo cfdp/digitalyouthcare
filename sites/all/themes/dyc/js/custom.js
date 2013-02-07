@@ -20,6 +20,9 @@
 			// Add active class to list items in the recent article block to help style the current article
 
 			$('.view-display-id-block_1 li a.active').parents('li').addClass('active');
+
+			// Inject btn class to add new forum topic on the forum page
+			$('.page-forum #zone2 ul.links li a').addClass('btn btn-theme btn-large');
 		}
 	}
 })(jQuery);

@@ -84,8 +84,18 @@
 	cursor: initial;
 }
 /*=======================================================*/
+
+/* Decrease menu link font size */
 #nav.sf-menu a, 
 #nav.sf-menu a:visited {
   font-size: 17px;
 }
+/*=======================================================*/
 
+/* Float copyright to the right */
+
+#footer-note
+{
+  float: right;
+}
+/*=======================================================*/

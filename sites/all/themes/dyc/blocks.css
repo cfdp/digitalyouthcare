@@ -2,18 +2,18 @@
 /*General blocks styles*/
 #zone2 .block
 {
-	border-bottom-width: 0;
-	margin: 0 20px 20px;
-	padding: 0 0 10px 0;
+  border-bottom-width: 0;
+  margin: 0 20px 20px;
+  padding: 0 0 10px 0;
 }
 
 /* Recent content block */
 
 #block-node-recent.block
 {
-	padding: 0 15px 10px;
+  padding: 0 15px 10px;
 }
-/*================================*/
+/*----------------------*/
 
 /* Sidebar blocks */
 /* Remove line numbers, add more vertical spacing */
@@ -23,10 +23,10 @@
 #block-forum-new .item-list li,
 #block-user-online .item-list li
 {
-	border-bottom: 1px solid rgb(226,226,226);
-	list-style: none;
-	margin: 0;
-	padding: 10px;
+  border-bottom: 1px solid rgb(226,226,226);
+  list-style: none;
+  margin: 0;
+  padding: 10px;
 }
 
 /* Remove the bottom border of the last item in the list */
@@ -36,13 +36,12 @@
 #block-forum-new .item-list ul li.views-row-last,
 #block-forum-new .item-list ul li.last
 {
-	border-bottom-width: 0;
+  border-bottom-width: 0;
 }
+/*-------------------------------------------------------*/
 
-/*================================*/
-
-/* Mouse hover styling adds a blue vertical line on the left side of the list item */
-/* When viewing one of the article, style that one in the list to look like the hover state */
+/* Mouse hover styling adds a blue vertical line on the left side of the list item
+   When viewing one of the article, style that one in the list to look like the hover state */
 #block-node-recent tr:hover,
 #block-views-articles-block-1 .item-list li:hover,
 #block-views-articles-block-1 .item-list li.active,
@@ -50,90 +49,90 @@
 #block-forum-new .item-list li:hover,
 #block-user-online .item-list li:hover
 {
-	border-left: 3px solid rgb(73,115,185);
-	padding-left: 7px;
+  border-left: 3px solid rgb(73,115,185);
+  padding-left: 7px;
 }
 
-/*================================*/
+/*------------------------------------------------------------------------------------------*/
 
 /* Style for active links inside the blocks */
 
 #block-views-articles-block-1 .item-list ul li a.active:hover,
 #block-views-articles-block-2 .item-list ul li a.active:hover
 {
-	cursor: default;
+  cursor: default;
 }
 
-/*================================*/
+/*------------------------------------------*/
+
 /* User directory block */
 
 #block-views-user-directory-block-1 .views-row
 {
-	overflow: hidden;
-	padding: 5px;
+  overflow: hidden;
+  padding: 5px;
 }
 
 #block-views-user-directory-block-1 .views-row:hover
 {
-	border-left: 3px solid rgb(73,115,185);
-	padding-left: 2px;
+  border-left: 3px solid rgb(73,115,185);
+  padding-left: 2px;
 }
 
 #block-views-user-directory-block-1 .views-row-even
 {
-	border-top: 1px solid rgb(226,226,226);
-	border-bottom: 1px solid rgb(226,226,226);
+  border-top: 1px solid rgb(226,226,226);
+  border-bottom: 1px solid rgb(226,226,226);
 }
 
 #block-views-user-directory-block-1 .views-row .views-field-picture
 {
-	display: inline-block;
-	float: left;
-	width: 50px;
+  display: inline-block;
+  float: left;
+  width: 50px;
 }
 
 #block-views-user-directory-block-1 .views-row .views-field-field-last-name,
 #block-views-user-directory-block-1 .views-row .views-field-field-profile-organisation
 {
-	display: inline-block;
-	margin-left: 10px;
-	width: 70%;
+  display: inline-block;
+  margin-left: 10px;
+  width: 70%;
 }
 
 #block-views-user-directory-block-1 .views-row .views-field-field-profile-organisation a
 {
-	color: rgb(126,126,126);
-	font-size: 11px;
+  color: rgb(126,126,126);
+  font-size: 11px;
 }
 
-/*================================*/
+/*--------------------------------------------*/
 
 /* Footer menu links */
 
 #footer-left h5
 {
-	margin: 10px 0;
+  margin: 10px 0;
 }
 
 #footer-left ul
 {
-        margin: 0;
+  margin: 0;
 }
 
 #footer-left ul li
 {
-        list-style: none;
+  list-style: none;
 }
 
 #footer-left ul li a,
 #footer-left ul li a:visited
 {
-        color: rgb(236,236,236);
+  color: rgb(236,236,236);
 }
 
 #footer-left ul li a:hover
 {
-        color: rgb(206,206,206);
+  color: rgb(206,206,206);
 }
-/*=======================================================*/
-
+/*------------------------------------------------*/

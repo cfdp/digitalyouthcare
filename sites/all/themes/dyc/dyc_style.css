@@ -1,4 +1,4 @@
-/* custom changes to icompany theme by CfDP */
+/* Custom changes to icompany theme by CfDP */
 #site-name {
   font-size: 36px;
 }
@@ -7,90 +7,89 @@
 
 #slider-inner
 {
-	min-height: 320px;
+  min-height: 320px;
 }
 .flex-viewport
 {
-	height: 320px;
+  height: 320px;
 }
 
-/*=======================================================*/
+/*----------------------------------*/
 
 /*Minimize slider pation area */
 
 .slides li .flex-caption
 {
-	height: 260px;
-	margin: 0 0 0 20px;
-	padding: 10px 30px;
-	top: 20px;
-	width: 200px;
+  height: 260px;
+  margin: 0 0 0 20px;
+  padding: 10px 30px;
+  top: 20px;
+  width: 200px;
 }
 
 .slides li .flex-caption .flex-caption-title
 {
-	padding-bottom: 15px;
+  padding-bottom: 15px;
 }
-/*=======================================================*/
+/*----------------------------*/
 
 /*Move the read more button in the slides on the homepage*/
 .slides li .flex-caption .flex-caption-link
 {
-	bottom: 10px;
-	position: absolute;
-	right: 20px;
+  bottom: 10px;
+  position: absolute;
+  right: 20px;
 }
-
-/*=======================================================*/
+/*-------------------------------------------------------*/
 
 
 /*FAQ toggle style question and answer*/
 
 .faq
 {
-	list-style: none;
+  list-style: none;
 }
 
 .faq li:hover,
 .faq li.active
 
 {
-	outline: 1px solid rgb(160,160,160);
+  outline: 1px solid rgb(160,160,160);
 }
 
 .faq .question
 {
-	margin: 0;
-	padding: 10px 15px;
+  margin: 0;
+  padding: 10px 15px;
 }
 
 .faq .question:hover,
 .faq .active
 {
-	background: rgb(180,180,180);
-	color: rgb(255,255,255);
-	cursor: pointer;
+  background: rgb(180,180,180);
+  color: rgb(255,255,255);
+  cursor: pointer;
 }
 
 .faq .answer
 {
-        background: rgb(226,226,226);
-	color: rgb(111,111,111);
-        padding: 15px;
+  background: rgb(226,226,226);
+  color: rgb(111,111,111);
+  padding: 15px;
 }
 
 .faq .answer:hover
 {
-	cursor: initial;
+  cursor: initial;
 }
-/*=======================================================*/
+/*-------------------------------------------------------*/
 
 /* Decrease menu link font size */
 #nav.sf-menu a, 
 #nav.sf-menu a:visited {
   font-size: 17px;
 }
-/*=======================================================*/
+/*-------------------------------------------------------*/
 
 /* Float copyright to the right */
 
@@ -98,4 +97,4 @@
 {
   float: right;
 }
-/*=======================================================*/
+/*------------------------------*/

@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * @file
+ * Custom dynamic menu item link added to user menu
+ */
+
+//dpm(cfdp_uf_get_user_organisation());
+
+function cfdp_uf_menu() {
+  //create menu item for My Organisation
+  $items = array();
+  
+  $items['my-organisation'] = array(
+    'title' => 'My Organisation',
+    'description' => 'View your organisation\'s page',
+    'page callback' => 'cfdp_uf_my_organisation_link',
+    'access callback' => 'cfdp_uf_user_has_organisation',
+    'expanded' => TRUE,
+    'weight' => -100,
+    'menu_name' => 'user-menu',
+  ); 
+ 
+  return $items;
+}
+
+//find user's organisation. this assume that each user only belongs to one organisation!
+//for admins, will choose the most recently joined organisation that user is an admin of
+function cfdp_uf_get_user_organisation(){
+  global $user;
+  $organisation_id = false;
+  // Extract the organisation id using the user id provided in $user
+  $user_id = $user->uid;
+  $user_profile = user_load($user_id);
+  if (isset($user_profile->field_profile_organisation['und'][0]['target_id'])){
+    $organisation_id=$user_profile->field_profile_organisation['und'][0]['target_id'];  
+  }
+  return $organisation_id;
+}
+
+//does the user actually belong to a organisation?
+function cfdp_uf_user_has_organisation(){
+  if (cfdp_uf_get_user_organisation()){
+    return TRUE;
+  }
+}
+
+//redirect the user to the right node
+function cfdp_uf_my_organisation_link(){
+  $nid = cfdp_uf_get_user_organisation();
+  drupal_goto('node/' . $nid);
+  //return node_view($nid); //you could also simply load the node if you wanted to
+}
+

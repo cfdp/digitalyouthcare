@@ -7,6 +7,7 @@ sites/*/private
 sites/all/modules/maillog/*
 sites/all/modules/devel/*
 sites/all/modules/devel_themer/*
+sites/all/modules/simplehtmldom/*
 sites/all/modules/git_deploy/*
 sites/all/modules/icompany/*
 sites/all/modules/icompany_config/*

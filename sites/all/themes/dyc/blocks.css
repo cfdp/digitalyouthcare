@@ -21,6 +21,7 @@
 #block-views-articles-block-1 .item-list li,
 #block-views-articles-block-2 .item-list li,
 #block-forum-new .item-list li,
+#block-views-recent-content-block .item-list li,
 #block-user-online .item-list li
 {
   border-bottom: 1px solid rgb(226,226,226);
@@ -34,6 +35,7 @@
 #block-views-articles-block-1 .item-list ul li.views-row-last,
 #block-views-articles-block-2 .item-list ul li.views-row-last,
 #block-forum-new .item-list ul li.views-row-last,
+#block-views-recent-content-block .item-list li.views-row-last,
 #block-forum-new .item-list ul li.last
 {
   border-bottom-width: 0;
@@ -46,6 +48,7 @@
 #block-views-articles-block-1 .item-list li:hover,
 #block-views-articles-block-1 .item-list li.active,
 #block-views-articles-block-2 .item-list li:hover,
+#block-views-recent-content-block .item-list li:hover,
 #block-forum-new .item-list li:hover,
 #block-user-online .item-list li:hover
 {

@@ -68,6 +68,19 @@
 
 /*------------------------------------------*/
 
+/* Custom highlighted blocks */
+.dyc-highlight {
+  color: #FFFFFF;
+  padding: 15px;
+}
+.dyc-highlight a,
+.dyc-highlight a:hover,
+.dyc-highlight a:active
+{
+  color: #FFFFFF;
+}
+
+
 /* User directory block */
 
 #block-views-user-directory-block-1 .views-row,

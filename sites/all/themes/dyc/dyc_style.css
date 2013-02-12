@@ -98,3 +98,8 @@
   float: right;
 }
 /*------------------------------*/
+
+/* Highligted region */
+.view-display-id-block_1 .field-content p {
+  margin: 0 0 10px 0;
+}

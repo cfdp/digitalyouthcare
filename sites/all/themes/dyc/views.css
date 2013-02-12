@@ -12,15 +12,16 @@
   margin: 0;
 }
 
-
 /* List of organisations */
 
 .view-organizations .views-row
 {
+  border: 1px solid #E2E2E2;
   display: inline-block;
   float: left;
   max-width: 33%;
-  min-height: 250px;
+  margin: 0 20px 20px 0;
+  padding: 10px;
 }
 
 /*This is for the members page, we need a lower min-height as we have smaller thumbs on this page*/
@@ -28,19 +29,6 @@
 .view-organizations.view-display-id-page_1 .views-row
 {
   min-height: 200px;
-}
-
-.view-organizations .views-row-even
-{
-  border-left: 1px solid rgb(226,226,226);
-  border-right: 1px solid rgb(226,226,226);
-  margin: 0 20px;
-  padding: 0 20px;
-}
-
-.view-organizations .views-row-even.views-row-last
-{
-  border-right-width: 0;
 }
 
 .view-organizations .ui-accordion-header
@@ -85,6 +73,7 @@
 .view-organizations .views-row .views-field
 {
   margin-top: 5px;
+  max-width: 200px;
 }
 
 .view-organizations .views-row .views-field-field-logo
@@ -93,6 +82,11 @@
   margin-top: 0;
   width: 200px;
 }
+
+.ui-widget-content a {
+  color: #4973B9;
+}
+
 /* Specific overwrite for the members page as it has smaller thumbs, we decrease min-height just for that view display*/
 
 .view-organizations.view-display-id-page_1 .views-row .views-field-field-logo
@@ -100,11 +94,6 @@
   min-height: 100px;
 }
 
-
-.view-organizations .views-row .views-field-title
-{
-  max-width: 200px;
-}
 /*-------------------------------------------*/
 
 /* Style the knowledge base list of articles */

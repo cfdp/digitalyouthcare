@@ -187,7 +187,8 @@
   padding: 0 5px 0;
 }
 
-.view-id-terms .views-row:hover
+.view-id-terms .views-row:hover,
+.view-id-terms .views-row.active
 {
   border-right: 5px solid rgb(73,115,185);
   padding-right: 0;

@@ -17,13 +17,28 @@
     <?php print render($title_suffix); ?>
 	<?php if ($submitted): ?><div class="comment-submitted">
             <?php 
-              // Extract the organisation id using the user id provided in $variables
+              // Loads the user profile array by using the user id provided in $variables
               $user_id = (int)$variables['elements']['#comment']->uid;
-              $user_profile = user_load($user_id);
-              $organisation_id = $user_profile->field_profile_organisation['und'][0]['target_id'];
-              // Call the function that extracts the organisation name based on the organisation id
-              $org_name = dyc_call_organisation_name($organisation_id);            
-              print $submitted."<a href=/node/".$organisation_id." title=\"View organisation.\"> - ".$org_name."</a>"?></div><?php endif; ?>
+              $user_profile = user_load($user_id); 
+
+              // Checks if the user is anonymous or if the user has any organisation set 
+              if ( ( (string)$user_profile->uid == "0" ) or ( $user_profile->field_profile_organisation == null )) {
+                // prints the username and date
+                print $submitted;
+              }
+              else {
+                // Extracts the organisation id by using the user id provided in $variables
+                $organisation_id = $user_profile->field_profile_organisation['und'][0]['target_id'];
+                // Call the function that extracts the organisation name based on the organisation id
+                $org_name = dyc_call_organisation_name($organisation_id); 
+
+                // prints the username,date and the user's organisation           
+                print ($submitted."<a href=/node/".$organisation_id." title=\"View organisation.\"> - ".$org_name."</a>");
+              }
+            ?></div>
+
+  <?php endif; ?>
+
     
     <div class="content"<?php print $content_attributes; ?>>
     

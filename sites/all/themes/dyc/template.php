@@ -166,23 +166,46 @@ function dyc_menu_local_task($variables) {
 // customize node submitted text
 function dyc_preprocess_node(&$variables) {
   $print_task = t('Print this page');
-  // Extract the organisation id using the user id provided in $variables
+  // Loads the user profile array by using the user id provided in $variables
   $user_id = (int)$variables["uid"];
   $user_profile = user_load($user_id);
-  $organisation_id=$user_profile->field_profile_organisation['und'][0]['target_id'];
-  // Call the function that extracts the organisation name based on the organisation id
-  $org_name = dyc_call_organisation_name($organisation_id);
-  
-  if ($variables['submitted']) {
-    $variables['submitted'] = t('<span class="icon-calendar"></span> on 
-                                !datetime &nbsp; <span class=" icon-user"></span> 
-                                !username !organisation
-                                <a class="hidden-phone hidden-tablet node-print pull-right" style="line-height:10px;"  data-original-title="!print_text" data-placement="top" rel="tooltip" href="javascript:window.print()">
-                                <span class="icon-print"></span></a>', 
-                                array('!username' => $variables['name'], '!datetime' => $variables['date'],
-                                        '!print_text' => $print_task,
-                                        '!organisation'=> "<a href=/node/".$organisation_id." title=\"View organisation.\"> - ".$org_name."</a>"));
+
+  // Checks for anonymous users or users without organisation
+  if ( (string)$user_profile->uid == "0" or ( $user_profile->field_profile_organisation == null ) ) {
+
+  	// prints the username and date
+  	if ($variables['submitted']) {
+   		 $variables['submitted'] = t('<span class="icon-calendar"></span> on 
+    							!datetime &nbsp; <span class=" icon-user"></span> 
+    							!username 
+    							<a class="hidden-phone hidden-tablet node-print pull-right" style="line-height:10px;"  data-original-title="!print_text" data-placement="top" rel="tooltip" href="javascript:window.print()">
+    							<span class="icon-print"></span></a>', 
+    							array('!username' => $variables['name'], '!datetime' => $variables['date'], 
+    								'!print_text' => $print_task));
+  	}
   }
+
+  else {
+
+  	// Extracts the organisation id by using the user id provided in $variables
+  	$organisation_id=$user_profile->field_profile_organisation['und'][0]['target_id'];
+  	
+  	// Call the function that extracts the organisation name based on the organisation id
+  	$org_name = dyc_call_organisation_name($organisation_id);
+
+  	if ($variables['submitted']) {
+    	$variables['submitted'] = t('<span class="icon-calendar"></span> on 
+   	    	                        !datetime &nbsp; <span class=" icon-user"></span> 
+            	                    !username !organisation
+                	                <a class="hidden-phone hidden-tablet node-print pull-right" style="line-height:10px;"  data-original-title="!print_text" data-placement="top" rel="tooltip" href="javascript:window.print()">
+                    	            <span class="icon-print"></span></a>', 
+                        	        array('!username' => $variables['name'], '!datetime' => $variables['date'],
+                            	            '!print_text' => $print_task,
+                                	        '!organisation'=> "<a href=/node/".$organisation_id." title=\"View organisation.\"> - ".$org_name."</a>"));
+  	}
+  }
+
+
  
  
   //customize readmore, comments and comment add    

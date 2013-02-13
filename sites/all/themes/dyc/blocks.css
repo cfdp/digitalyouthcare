@@ -135,15 +135,15 @@
 
 #footer-region .footer-inner
 {
-	padding: 0;
+  padding: 0;
 }
 
 .region-footer1 .block
 {
-	background: rgb(226,226,226);
-	border-top: 3px solid rgb(73,115,185);
-	color: rgb(111,111,111);
-	padding-top: 25px;
+  background: rgb(226,226,226);
+  border-top: 3px solid rgb(73,115,185);
+  color: rgb(111,111,111);
+  padding-top: 25px;
 }
 
 /*-----------------------------------*/

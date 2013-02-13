@@ -27,7 +27,7 @@
 
 // Add active class to tag in the filter by tag section on the knowledge base page, to indicate current active filter
      
-       console.log($('.view-id-terms a.active').parents('.views-row').addClass('active'));
+      $('.view-id-terms a.active').parents('.views-row').addClass('active');
     
     }
   }

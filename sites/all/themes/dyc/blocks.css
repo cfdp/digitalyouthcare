@@ -40,6 +40,17 @@ li a.active
 
 /*-----------------------------------------------------*/
 
+/* Highlighted welcome block in the sidebar for anonymous */
+
+#block-views-highlighted-blocks-block .view-highlighted-blocks
+{
+  background-color: transparent;
+  border-left: 3px solid rgb(73,115,185);
+  padding: 0 15px;
+}
+
+/*--------------------------------------------------------*/
+
 /* Recent content block */
 
 #block-node-recent.block

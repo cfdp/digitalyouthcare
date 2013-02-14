@@ -16,7 +16,7 @@
 
 .view-organizations .views-row
 {
-  border: 1px solid #E2E2E2;
+  border: 1px solid rgb(238,238,238);
   display: inline-block;
   float: left;
   max-width: 33%;
@@ -28,7 +28,7 @@
 
 .view-organizations.view-display-id-page_1 .views-row
 {
-  min-height: 200px;
+  min-height: 235px;
 }
 
 .view-organizations .ui-accordion-header

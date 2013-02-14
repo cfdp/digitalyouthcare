@@ -7,6 +7,11 @@
   padding: 0 0 10px 0;
 }
 
+li a.active
+{
+  color: rgb(111,111,111);
+}
+
 /* Recent content block */
 
 #block-node-recent.block

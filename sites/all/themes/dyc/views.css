@@ -216,3 +216,25 @@
 }
 
 /*-----------------------------------------*/
+
+/* Internal documents and polls */
+
+.view-internal-documents .views-row
+{
+  margin: 20px 0;
+  padding-left: 8px;
+}
+
+.view-internal-documents .views-row:hover
+{
+  border-left: 3px solid rgb(73,115,185);
+  padding-left: 5px;
+}
+
+.view-internal-documents .views-field-title h3
+{
+  margin: 0;
+  padding: 2px 0;
+}
+
+/*------------------------------*/

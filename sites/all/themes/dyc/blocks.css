@@ -12,6 +12,34 @@ li a.active
   color: rgb(111,111,111);
 }
 
+/* Highlighted area below the slider on the front page */
+
+#highlighted_2 .region-highlighted-2
+{
+  border-width: 20px;
+  border-color: rgb(73,115,185);
+  border-right: 20px solid rgb(73, 115,185);
+}
+
+#zone1 #highlighted_2,
+#highlighted_2 .view-highlighted-blocks
+{
+  background-color: rgb(226,226,226);
+}
+
+#highlighted_2 .view-highlighted-blocks .views-field-body p
+{
+  margin: 0;
+}
+
+#highlighted_2 .view-highlighted-blocks .view-content .field-content
+{
+  color: rgb(111,111,111);
+  padding: 15px;
+}
+
+/*-----------------------------------------------------*/
+
 /* Recent content block */
 
 #block-node-recent.block
@@ -72,19 +100,6 @@ li a.active
 }
 
 /*------------------------------------------*/
-
-/* Custom highlighted blocks */
-.dyc-highlight {
-  color: #FFFFFF;
-  padding: 15px;
-}
-.dyc-highlight a,
-.dyc-highlight a:hover,
-.dyc-highlight a:active
-{
-  color: #FFFFFF;
-}
-
 
 /* User directory block */
 

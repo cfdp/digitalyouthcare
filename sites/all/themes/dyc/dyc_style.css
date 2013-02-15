@@ -129,3 +129,12 @@
 }
 
 /*------------------------------------------*/
+
+/* Remove list style from unordered lists inside field-type-text-with-summary */
+
+.node .field-type-text-with-summary ul li
+{
+  list-style: none;
+}
+
+/*-----------------------------------------------------------------------*/

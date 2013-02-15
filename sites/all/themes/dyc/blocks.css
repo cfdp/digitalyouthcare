@@ -153,11 +153,23 @@ li a.active
   width: 70%;
 }
 
+#block-views-user-directory-block-1 .views-row .views-field-field-profile-organisation,
+#block-views-members-block-1 .views-row .views-field-field-profile-organisation
+{
+  margin-top: 5px;
+}
+
 #block-views-user-directory-block-1 .views-row .views-field-field-profile-organisation a,
-#block-views-members .views-row .views-field-field-profile-organisation a
+#block-views-members-block-1 .views-row .views-field-field-profile-organisation a
 {
   color: rgb(126,126,126);
   font-size: 11px;
+}
+
+#block-views-user-directory-block-1 .views-row .views-field-field-profile-organisation a:hover,
+#block-views-members-block-1 .views-row .views-field-field-profile-organisation a:hover
+{
+  text-decoration: underline;
 }
 
 /*--------------------------------------------*/

@@ -136,7 +136,7 @@ li a.active
 }
 
 #block-views-user-directory-block-1 .views-row .views-field-picture,
-#block-views-members-block-1 .views-row .view-field-picture
+#block-views-members-block-1 .views-row .views-field-picture
 {
   display: inline-block;
   float: left;
@@ -146,7 +146,7 @@ li a.active
 #block-views-user-directory-block-1 .views-row .views-field-field-last-name,
 #block-views-user-directory-block-1 .views-row .views-field-field-profile-organisation,
 #block-views-members-block-1 .views-row .views-field-field-last-name,
-#block-views-members-block-1 .views-row -views-field-field-profile-organisation
+#block-views-members-block-1 .views-row .views-field-field-profile-organisation
 {
   display: inline-block;
   margin-left: 10px;

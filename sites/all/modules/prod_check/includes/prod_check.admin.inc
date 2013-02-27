@@ -76,6 +76,24 @@ function prod_check_settings_form($form, &$form_state) {
     '#description' => t('Enter (part of) the e-mail address you always <strong>use when developing</strong> a website. This is used in a regular expression in the "Site e-mail", Contact and Webform modules check.'),
     '#required' => FALSE,
   );
+  if (module_exists('dblog')) {
+    $form['prod_check_general']['prod_check_dblog_php'] = array(
+      '#type' => 'select',
+      '#title' => t('Minimal watchdog severity for PHP errors'),
+      '#default_value' => variable_get('prod_check_dblog_php', WATCHDOG_WARNING),
+      '#options' => watchdog_severity_levels(),
+      '#description' => t('Select the severity level from which to start reporting PHP errors being logged to the watchdog table.'),
+      '#required' => TRUE,
+    );
+    $form['prod_check_general']['prod_check_dblog_php_threshold'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Threshold for PHP errors'),
+      '#size' => 2,
+      '#default_value' => variable_get('prod_check_dblog_php_threshold', 1),
+      '#description' => t('Enter the number of times a PHP error needs to occur before reporting a problem. E.g. entering 3 here will allow 2 occurences of the exact same PHP error without an error being reported.'),
+      '#required' => TRUE,
+    );
+  }
 
   $form['prod_check_apc'] = array(
     '#type' => 'fieldset',
@@ -110,33 +128,6 @@ function prod_check_settings_form($form, &$form_state) {
     '#title' => t('APC advanced features password'),
     '#size' => 60,
     '#description' => t('The password for logging in to the APC settings page.'),
-    '#required' => FALSE,
-  );
-
-  $form['prod_check_memcache'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Memcache settings'),
-    '#description' => t(
-      'These settings are used in the !link functionality.', prod_check_link_array('memcache', 'admin/reports/status/memcache')),
-    '#collapsible' => TRUE,
-    '#collapsed' => TRUE,
-  );
-
-  // Memcache user.
-  $form['prod_check_memcache']['prod_check_memcacheuser'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Memcache username'),
-    '#default_value' => variable_get('prod_check_memcacheuser', 'memcache'),
-    '#size' => 60,
-    '#description' => t('The username for logging in to the Memcache settings page.'),
-    '#required' => FALSE,
-  );
-  // Memcache password.
-  $form['prod_check_memcache']['prod_check_memcachepass'] = array(
-    '#type' => 'password_confirm',
-    '#title' => t('Memcache password'),
-    '#size' => 60,
-    '#description' => t('The password for logging in to the Memcache settings page.'),
     '#required' => FALSE,
   );
 
@@ -284,7 +275,7 @@ function prod_check_settings_form($form, &$form_state) {
           )
         ) .'</p>',
       );
-  
+
       $form['prod_check_nagios']['nagios']['settings']['prod_check_nagios_verbose'] = array(
         '#type' => 'checkbox',
         '#title' => t('Show verbose status info'),
@@ -388,6 +379,12 @@ function prod_check_settings_form_validate($form, &$form_state) {
   drupal_add_js($base . '/js/jquery.maskedinput.min.js', 'module', 'header');
   drupal_add_js($base . '/js/prod-check.js', 'module', 'header');
 
+  if (module_exists('dblog')) {
+    if (!is_numeric($form_state['values']['prod_check_dblog_php_threshold'])) {
+      form_set_error('prod_check_dblog_php_threshold', t('The PHP error threshold should be numeric!'));
+    }
+  }
+
   if ($form_state['values']['prod_check_enable_xmlrpc']) {
     if (empty($form_state['values']['prod_check_xmlrpc_key'])) {
       form_set_error('prod_check_xmlrpc_key', t('When enabling the XPLRPC API, you <strong>must</strong> enter an API key!'));
@@ -411,7 +408,7 @@ function prod_check_settings_form_validate($form, &$form_state) {
   }
 
   if (!is_numeric($form_state['values']['prod_check_apc_expunge'])) {
-    form_set_error('prod_check_apc_expunge', t('Cache full count threshold should be numeric!'));
+    form_set_error('prod_check_apc_expunge', t('APC Cache full count threshold should be numeric!'));
   }
 
   if (isset($form_state['values']['prod_check_enable_nagios']) && $form_state['values']['prod_check_enable_nagios']) {
@@ -443,6 +440,9 @@ function prod_check_settings_form_submit($form, &$form_state) {
       break;
     case t('Save configuration'):
       variable_set('prod_check_sitemail', $form_state['values']['prod_check_sitemail']);
+      // PHP errors.
+      variable_set('prod_check_dblog_php', $form_state['values']['prod_check_dblog_php']);
+      variable_set('prod_check_dblog_php_threshold', $form_state['values']['prod_check_dblog_php_threshold']);
       // APC.
       variable_set('prod_check_apc_expunge', $form_state['values']['prod_check_apc_expunge']);
       variable_set('prod_check_apcuser', $form_state['values']['prod_check_apcuser']);
@@ -740,15 +740,13 @@ function prod_check_apc() {
 function prod_check_memcache() {
   global $conf;
 
-  define('ADMIN_USERNAME', variable_get('prod_check_memcacheuser', 'memcache'));
-  define('ADMIN_PASSWORD', variable_get('prod_check_memcachepass', 'password'));
   if (isset($conf['memcache_servers'])) {
     global $MEMCACHE_SERVERS;
     $MEMCACHE_SERVERS = array_keys($conf['memcache_servers']);
-    include(drupal_get_path('module', 'prod_check').'/includes/prod_check.memcache.inc');
+    include(drupal_get_path('module', 'prod_check') . '/includes/prod_check.memcache.inc');
   }
   else {
-    print "No memcache servers found in settings.php.";
+    print 'No memcache servers found in settings.php.';
   }
   exit;
 }

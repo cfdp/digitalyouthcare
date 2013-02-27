@@ -109,14 +109,14 @@ function _prod_monitor_generate_updates_link($id, $update_status) {
  * Callback for performance page.
  */
 function prod_monitor_performance($data) {
-  //drupal_set_title($title);
+  drupal_set_title(t('Performance logs for') .' '. _prod_monitor_get_url($data['id']));
 
   // TODO: add 'get stats now' button.
   //$site = _prod_monitor_get_site($id, TRUE);
 
   return array(
     'performance_data' => array(
-      '#data' => $data,
+      '#data' => $data['data'],
       '#theme' => 'prod_monitor_performance',
     ),
   );
@@ -513,7 +513,7 @@ function prod_monitor_overview_form_submit($form, &$form_state) {
         if ($form_state['values']['fetch']) {
           $site_info = _prod_monitor_get_site($site->id, TRUE);
           _prod_monitor_retrieve_data($site->id, $site_info, TRUE);
-          drupal_goto('admin/reports/prod-monitor/site/'.$site->id);
+          $form_state['redirect'] = 'admin/reports/prod-monitor/site/'.$site->id;
         }
       }
       else {
@@ -566,7 +566,7 @@ function prod_monitor_flush_form_submit($form, &$form_state) {
       drupal_set_message(t('Stored data for %url successfully flushed.', array('%url' => $form_state['values']['url'])));
     }
   }
-  drupal_goto('admin/reports/prod-monitor');
+  $form_state['redirect'] = 'admin/reports/prod-monitor';
 }
 
 /**
@@ -603,7 +603,7 @@ function prod_monitor_delete_form_submit($form, &$form_state) {
       drupal_set_message(t('Unable to delete %url!', array('%url' => $form_state['values']['url'])), 'error');
     }
   }
-  drupal_goto('admin/reports/prod-monitor');
+  $form_state['redirect'] = 'admin/reports/prod-monitor';
 }
 
 function _prod_monitor_update_data_form($form, $form_state, $id, $site_info) {

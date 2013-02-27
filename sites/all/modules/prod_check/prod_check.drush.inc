@@ -7,7 +7,7 @@ function prod_check_drush_command() {
   $items = array();
 
   $items['prod-check'] = array(
-    'callback' => 'drush_prod_check_statuspage',
+    'callback' => 'drush_prod_check_status',
     'description' => 'Display the Production Check status page.',
     'aliases' => array('pchk'),
   );
@@ -27,13 +27,13 @@ function prod_check_drush_command() {
 /**
  * Status page callback
  */
-function drush_prod_check_statuspage() {
+function drush_prod_check_status() {
   // Map error codes to shell colours.
   $severity = array (
-    REQUIREMENT_INFO => '1',
-    REQUIREMENT_OK => '1;32',
-    REQUIREMENT_WARNING => '1;33',
-    REQUIREMENT_ERROR => '1;31',
+    PROD_CHECK_REQUIREMENT_INFO => '1',
+    PROD_CHECK_REQUIREMENT_OK => '1;32',
+    PROD_CHECK_REQUIREMENT_WARNING => '1;33',
+    PROD_CHECK_REQUIREMENT_ERROR => '1;31',
   );
   $error = 0;
 

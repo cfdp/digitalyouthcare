@@ -74,7 +74,7 @@ function dyc_menu_link(array $variables) {
 			
 		if(array_key_exists('attributes', $variables['element']['#original_link']['options']) && array_key_exists('title', $variables['element']['#original_link']['options']['attributes'])){
 			 $item_url = drupal_get_path_alias($element['#href']);
-			 $output = l($element['#title'], $element['#href'], $element['#localized_options']) . '<span class="tip hidden-phone hidden-tablet"> <a href="'. $item_url . '">' . $variables['element']['#original_link']['options']['attributes']['title'] .'</a></span>';	
+			 $output = l($element['#title'], $element['#href'], $element['#localized_options']) . '<span class="tip hidden-phone hidden-tablet"> <a href="/'. $item_url . '">' . $variables['element']['#original_link']['options']['attributes']['title'] .'</a></span>';	
 		}
 		else {
 			$output = l($element['#title'], $element['#href'], $element['#localized_options']) . '<span class="tip hidden-phone hidden-tablet"> </span>';

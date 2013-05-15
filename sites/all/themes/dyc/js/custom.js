@@ -24,6 +24,11 @@
 
 // Inject btn class to add new forum topic on the forum page
       $('.page-forum #zone2 ul.links li a').addClass('btn btn-theme btn-large');
+
+// Add active class to tag in the filter by tag section on the knowledge base page, to indicate current active filter
+     
+      $('.view-id-terms a.active').parents('.views-row').addClass('active');
+    
     }
   }
 })(jQuery);

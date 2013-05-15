@@ -1,15 +1,29 @@
 # Ignore configuration files that may contain sensitive information.
+
 sites/*/settings*.php
 
+
+
 # Ignore paths that contain user-generated content.
+
 sites/*/files
+
 sites/*/private
+
 sites/all/modules/maillog/*
+
 sites/all/modules/devel/*
+
 sites/all/modules/devel_themer/*
+
 sites/all/modules/simplehtmldom/*
+
 sites/all/modules/git_deploy/*
+
 sites/all/modules/icompany/*
+
 sites/all/modules/icompany_config/*
+
 sites/all/modules/icompany_module/*
+
 sites/all/themes/icompany/*

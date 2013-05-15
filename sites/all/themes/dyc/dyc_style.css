@@ -103,3 +103,38 @@
 .view-display-id-block_1 .field-content p {
   margin: 0 0 10px 0;
 }
+
+/*-------------------*/
+
+/*Style tags:terms at the bottom of articles*/
+
+.node-article .meta .terms .field-item
+{
+  background: rgb(226,226,226);
+  border-radius: 4px;
+  margin: 10px 15px 0 0;
+  padding: 0 8px 2px;
+}
+
+.node-article .meta .terms .field-item:hover
+{
+  border-right: 5px solid rgb(73,115,185);
+  padding-right: 3px;
+}
+
+.node-article .meta .terms .field-item a
+{
+  color: rgb(73,115,185);
+  padding: 0;
+}
+
+/*------------------------------------------*/
+
+/* Remove list style from unordered lists inside field-type-text-with-summary */
+
+.node .field-type-text-with-summary ul li
+{
+  list-style: none;
+}
+
+/*-----------------------------------------------------------------------*/

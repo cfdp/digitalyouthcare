@@ -7,6 +7,50 @@
   padding: 0 0 10px 0;
 }
 
+li a.active
+{
+  color: rgb(111,111,111);
+}
+
+/* Highlighted area below the slider on the front page */
+
+#highlighted_2 .region-highlighted-2
+{
+  border-width: 20px;
+  border-color: rgb(73,115,185);
+  border-right: 20px solid rgb(73, 115,185);
+}
+
+#zone1 #highlighted_2,
+#highlighted_2 .view-highlighted-blocks
+{
+  background-color: rgb(226,226,226);
+}
+
+#highlighted_2 .view-highlighted-blocks .views-field-body p
+{
+  margin: 0;
+}
+
+#highlighted_2 .view-highlighted-blocks .view-content .field-content
+{
+  color: rgb(111,111,111);
+  padding: 15px;
+}
+
+/*-----------------------------------------------------*/
+
+/* Highlighted welcome block in the sidebar for anonymous */
+
+#block-views-highlighted-blocks-block .view-highlighted-blocks
+{
+  background-color: transparent;
+  border-left: 3px solid rgb(73,115,185);
+  padding: 0 15px;
+}
+
+/*--------------------------------------------------------*/
+
 /* Recent content block */
 
 #block-node-recent.block
@@ -68,19 +112,6 @@
 
 /*------------------------------------------*/
 
-/* Custom highlighted blocks */
-.dyc-highlight {
-  color: #FFFFFF;
-  padding: 15px;
-}
-.dyc-highlight a,
-.dyc-highlight a:hover,
-.dyc-highlight a:active
-{
-  color: #FFFFFF;
-}
-
-
 /* User directory block */
 
 #block-views-user-directory-block-1 .views-row,
@@ -105,7 +136,7 @@
 }
 
 #block-views-user-directory-block-1 .views-row .views-field-picture,
-#block-views-members-block-1 .views-row .view-field-picture
+#block-views-members-block-1 .views-row .views-field-picture
 {
   display: inline-block;
   float: left;
@@ -115,21 +146,50 @@
 #block-views-user-directory-block-1 .views-row .views-field-field-last-name,
 #block-views-user-directory-block-1 .views-row .views-field-field-profile-organisation,
 #block-views-members-block-1 .views-row .views-field-field-last-name,
-#block-views-members-block-1 .views-row -views-field-field-profile-organisation
+#block-views-members-block-1 .views-row .views-field-field-profile-organisation
 {
   display: inline-block;
   margin-left: 10px;
   width: 70%;
 }
 
+#block-views-user-directory-block-1 .views-row .views-field-field-profile-organisation,
+#block-views-members-block-1 .views-row .views-field-field-profile-organisation
+{
+  margin-top: 5px;
+}
+
 #block-views-user-directory-block-1 .views-row .views-field-field-profile-organisation a,
-#block-views-members .views-row .views-field-field-profile-organisation a
+#block-views-members-block-1 .views-row .views-field-field-profile-organisation a
 {
   color: rgb(126,126,126);
   font-size: 11px;
 }
 
+#block-views-user-directory-block-1 .views-row .views-field-field-profile-organisation a:hover,
+#block-views-members-block-1 .views-row .views-field-field-profile-organisation a:hover
+{
+  text-decoration: underline;
+}
+
 /*--------------------------------------------*/
+
+/* Social connect block above footer */
+
+#footer-region .footer-inner
+{
+  padding: 0;
+}
+
+.region-footer1 .block
+{
+  background: rgb(226,226,226);
+  border-top: 3px solid rgb(73,115,185);
+  color: rgb(111,111,111);
+  padding-top: 25px;
+}
+
+/*-----------------------------------*/
 
 /* Footer menu links */
 

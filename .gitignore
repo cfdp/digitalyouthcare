@@ -27,3 +27,6 @@ sites/all/modules/icompany_config/*
 sites/all/modules/icompany_module/*
 
 sites/all/themes/icompany/*
+
+# Ignore honey pot script file
+eels.php

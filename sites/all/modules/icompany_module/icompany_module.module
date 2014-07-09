@@ -1,0 +1,521 @@
+<?php
+/**
+ * @file
+ * This is a basic module supplied with iCompany theme. You only need to Enable this if you use Piecemaker Slider with your theme.
+ */
+
+function icompany_module_help($path, $arg) {
+	switch ($path) {
+		case "admin/help#icompany" :
+			return '<p>' . t("This is a helper module supplied with iCompany theme. It's purpose is to serve backend of iCompany theme.. This module will flush the content of piecemaker.xml located in icompany/sliders/piecemaker/ theme directory at every 'insert', 'create' and 'update' event so that piecemaker can re-create create piecemaker.xml for new contents. <stront>Note:</strong> You only need to Enable this if you use Piecemaker Slider with your theme. ") . '</p>';
+			break;
+	}
+}
+
+
+/**
+ * Implements hook_block_info().
+ */
+
+
+function icompany_module_block_info() {
+	
+	$blocks['icompany_slider'] = array(
+	'info' => t('iCompany Theme Slider'), //The name that will appear in the block list.
+	'cache' => DRUPAL_CACHE_PER_ROLE, //Default
+	);
+	
+	return $blocks;
+}
+
+function icompany_module_block_view($delta = '') {
+	$block = array();
+	switch($delta) {
+		case 'icompany_slider' :
+			$block['subject'] = t('<none>');
+			if (user_access('access content')) {
+				$content = t('Content of this block will not be displayed. Slider will be displayed instead. To configure slider settings, visit theme setting page. ');
+				$block['content'] = $content;
+			}
+		break;
+			
+	
+	}
+	return $block;
+}
+
+
+
+// prepare Flex slider code
+function get_flex_slider_content(){
+	
+	// load css and js
+	drupal_add_css(drupal_get_path('theme', 'icompany') .'/sliders/flex/flexslider.css', 'theme');
+	drupal_add_js(drupal_get_path('theme', 'icompany') . '/sliders/flex/jquery.flexslider-min.js', array('type' => 'file', 'scope' => 'header', 'group' => 'JS_LIBRARY', 'weight' => 6));
+	drupal_add_js('
+	(function ($) {
+	     $(window).load(function() {  $(\'.flexslider\').flexslider({  animation: "slide", slideshowSpeed: 7000});});
+     })(jQuery);
+	', array('type' => 'inline', 'scope' => 'header', 'weight' => 3));
+	
+	// get node id from database
+	$result = db_query_range('SELECT n.nid FROM {node} n WHERE n.type = :ntype AND n.status = 1 ORDER BY created DESC', 0, 5, array(':ntype' => 'slider'));
+	
+	
+
+	
+
+	$content = '';
+	$content .= '<div class="flex-container"><div class="flexslider"><ul class="slides">';
+	
+	foreach ($result as $record) {
+	    $node = node_load($record->nid);	
+
+
+		// Title
+		$title = $node->title;
+		
+		// Body
+		if(array_key_exists('und', $node->body)){
+		$body_full = $node->body['und'][0]['safe_value'];
+		$body_full = strip_tags($body_full, '<a>');
+		$body = substr($body_full,0,220).'...';
+		}
+		
+		
+		// Slide Link
+		if(array_key_exists('und', $node->field_slide_link)){
+		$link = $node->field_slide_link['und'][0]['safe_value'];
+		}
+		
+
+		// Image path
+		$image = $node->field_slider_image['und'][0]['uri'];
+		$image_url = image_style_url('slider', $image);		
+		
+
+		
+		if(isset($body) && isset($title) && isset($link)){
+			$caption_with_body_link_title = "<p class='hidden-phone flex-caption'><span class='flex-caption-title'>$title</span><span class='flex-caption-body slider-body hidden-tablet'>$body</span><span class='slider-body flex-caption-link'><a class ='btn btn-theme btn-large' href=\"$link\">Read More</a></span></p>";
+			$content .= " <li><img src=\"$image_url\" /> $caption_with_body_link_title </li> ";			
+		}
+
+		if(isset($title) && (isset($body) && empty($link))){
+			$caption_with_body_title = "<p class=' hidden-phone  flex-caption'><span class='flex-caption-title'>$title</span><span class='flex-caption-body slider-body hidden-tablet'>$body</span></p>";
+			$content .=  " <li><img src=\"$image_url\" /> $caption_with_body_title </li> ";			
+		}
+		
+		if(isset($title) && (empty($body) && isset($link))){
+			$caption_with_link_title = "<p class=' hidden-phone flex-caption'><span class='flex-caption-title'>$title</span><span class='flex-caption-link'><a class ='btn btn-theme btn-large slider-body' href=\"$link\">Read More</a></span></p>";
+			$content .=  " <li><img src=\"$image_url\" /> $caption_with_link_title </li> ";			
+		}
+		
+		if(isset($title) && (empty($body) && empty($link))){
+			$caption_title = "<p class=' hidden-phone flex-caption'><span class='flex-caption-title'>$title</span></p>";		
+			$content .=  " <li><img src=\"$image_url\" /> $caption_title </li> ";			
+		}
+					
+	}
+
+    $content .= '</ul></div></div>';
+	return $content;
+}
+
+
+function get_elastic_slider_content(){
+	// load css and js
+	drupal_add_css(drupal_get_path('theme', 'icompany') .'/sliders/elastic/css/style.css', 'theme');
+	drupal_add_js(drupal_get_path('theme', 'icompany') . '/sliders/elastic/js/jquery.eislideshow.js', array('type' => 'file', 'scope' => 'header', 'group' => 'JS_LIBRARY', 'weight' => 6));
+	drupal_add_js(drupal_get_path('theme', 'icompany') . '/sliders/elastic/js/jquery.easing.1.3.js', array('type' => 'file', 'scope' => 'header', 'group' => 'JS_LIBRARY', 'weight' => 7));	
+	drupal_add_js("
+	(function ($) {
+    	$(function() {
+            $('#ei-slider').eislideshow({
+    			easing		: 'easeOutExpo',
+    			titleeasing	: 'easeOutExpo',
+    			titlespeed	: 1200,
+    			autoplay			: true,
+    			slideshow_interval	: 7000,
+            });
+        });
+    })(jQuery);
+    ", array('type' => 'inline', 'scope' => 'footer', 'weight' => 3));
+	
+	
+	
+	// get node id from database
+	$result = db_query_range('SELECT n.nid FROM {node} n WHERE n.type = :ntype AND n.status = 1 ORDER BY created DESC', 0, 7, array(':ntype' => 'slider'));
+	
+	
+	
+	$header = '';
+	$footer = '';
+	$thumbs = '';
+	$content = '';
+	$header .= '<div id="ei-slider" class="ei-slider"> <ul class="ei-slider-large">';
+	
+	
+	$iteration_count = 1;
+	foreach ($result as $record) {
+	    $node = node_load($record->nid);	
+
+
+		// Title
+		$title = $node->title;
+		
+		// Body
+		if(array_key_exists('und', $node->body)){
+		$body_full = $node->body['und'][0]['safe_value'];
+		$body_full = strip_tags($body_full, '<a>');
+		$body = substr($body_full,0,140).'...';
+		}
+		
+		
+		// Slide Link
+		if(array_key_exists('und', $node->field_slide_link)){
+		$link = $node->field_slide_link['und'][0]['safe_value'];
+		}
+		
+
+		// Image path
+		$image = $node->field_slider_image['und'][0]['uri'];
+		$image_url = image_style_url('slider', $image);	
+		$thumb_url = image_style_url('thumbnail', $image);		
+		
+
+		
+		if(isset($body) && isset($title) && isset($link)){
+			$content .= "<li><img src=\"$image_url\" alt=\"$title\"/>";
+			$content.= "<div class=\"ei-title\"><h2 class=' clearfix '><span class='theme-scheme elastic-title-inner'> $title</span></h2><h3><span class='elastic-body-inner slider-body '>$body  </span> <br/><a class='hidden-phone ei-caption-link btn btn-theme' href='$link' data-original-title='Click here for more info' rel='tooltip' data-placement='bottom'>more info</a></h3></div></li>";
+			
+			$thumbs .= "<li><a href=\"#\">$title</a><img src=\"$thumb_url\" alt=\"$title\" /></li>";
+		}
+
+		if(isset($title) && (isset($body) && empty($link))){
+			$content .= "<li><img src=\"$image_url\" alt=\"$title\"/>";
+			$content.= "<div class=\"ei-title\"><h2 class=' clearfix'><span class='theme-scheme elastic-title-inner'> $title</span></h2><h3><span class='elastic-body-inner slider-body'>$body</h3></span></div></li>";	
+			
+			$thumbs .= "<li><a href=\"#\">$title</a><img src=\"$thumb_url\" alt=\"$title\" /></li>";		
+		}
+		
+		if(isset($title) && (empty($body) && isset($link))){
+			$content .= "<li><img src=\"$image_url\" alt=\"$title\"/>";
+			$content.= "<div class=\"ei-title\"><h2 class=' clearfix'><span class='theme-scheme elastic-title-inner'> $title</span></h2> <h3> <a class='ei-caption-link hidden-phone btn btn-theme' href='$link' data-original-title='Click here for more info' rel='tooltip' data-placement='bottom'>More Info</a></h3></div></li>";		
+			
+			$thumbs .= "<li><a href=\"#\">$title</a><img src=\"$thumb_url\" alt=\"$title\" /></li>";
+		}
+		
+		if(isset($title) && (empty($body) && empty($link))){
+			$content .= "<li><img src=\"$image_url\" alt=\"$title\"/>";
+			$content.= "<div class=\"ei-title\"><h2 class='clearfix'><span class='theme-scheme elastic-title-inner'> $title</span></h2></div></li>";	
+			
+			$thumbs .= "<li><a href=\"#\">$title</a><img src=\"$thumb_url\" alt=\"$title\" /></li>";
+		}
+		
+		
+		$iteration_count++;	
+	}	
+	
+	
+	$footer .= '</div>';
+	
+	
+	$markup = $header . $content . '</ul>' . '<ul class="ei-slider-thumbs"><li class="ei-slider-element">Current</li>' . $thumbs . '</ul>' . $footer ;
+	
+	return $markup;
+}
+
+
+function get_iview_slider_content(){
+	
+	// load css and js
+	drupal_add_css(drupal_get_path('theme', 'icompany') .'/sliders/iview/css/iview.css', 'theme');
+	drupal_add_css(drupal_get_path('theme', 'icompany') .'/sliders/iview/css/skin4/style.css', 'theme');
+		
+	drupal_add_js(drupal_get_path('theme', 'icompany') . '/sliders/iview/js/raphael-min.js', array('type' => 'file', 'scope' => 'header', 'group' => 'JS_LIBRARY', 'weight' => 6));
+	drupal_add_js(drupal_get_path('theme', 'icompany') . '/sliders/iview/js/jquery.easing.js', array('type' => 'file', 'scope' => 'header', 'group' => 'JS_LIBRARY', 'weight' => 7));
+	drupal_add_js(drupal_get_path('theme', 'icompany') . '/sliders/iview/js/iview.min.js', array('type' => 'file', 'scope' => 'header', 'group' => 'JS_LIBRARY', 'weight' => 8));
+
+	drupal_add_js("
+	(function ($) {
+		$(function() {
+			$('#iview').iView({
+					pauseTime: 7000,
+					pauseOnHover: true,
+					directionNavHoverOpacity: 0,
+					timer: 'Bar',
+					timerDiameter: '15%',
+					timerPadding: 0,
+					timerStroke: 7,
+					timerBarStroke: 0,
+					timerColor: '#FFF',
+					timerPosition: 'bottom-right',
+					fx: 'strip-up-down, strip-down-left, zigzag-drop-top, right-curtain, block-expand',
+			});
+		});
+    })(jQuery);
+    	", array('type' => 'inline', 'scope' => 'header', 'weight' => 8)
+	);
+	
+	// get node id from database
+	$result = db_query_range('SELECT n.nid FROM {node} n WHERE n.type = :ntype AND n.status = 1 ORDER BY created DESC', 0, 5, array(':ntype' => 'slider'));
+	
+	
+
+	
+	$header = '	<div class="container_i"><div id="iview">';
+	$content = '';
+	$footer = '</div></div>';
+	$iteration_count = 1;
+	$transition = '';
+	
+	foreach ($result as $record) {
+	    $node = node_load($record->nid);	
+
+
+		// Title
+		$title = $node->title;
+		
+		// Body
+		if(array_key_exists('und', $node->body)){
+		$body_full = $node->body['und'][0]['safe_value'];
+		// $body_full = strip_tags($body_full, '<a>');
+		$body = substr($body_full,0,300).'...';
+		}
+		
+		
+		// Slide Link
+		if(array_key_exists('und', $node->field_slide_link)){
+		$link = $node->field_slide_link['und'][0]['safe_value'];
+		$link = l('Read more', $link, array('attributes' => array('class' => 'btn btn-large btn-theme')));
+		}
+		
+
+		// Image path
+		$image = $node->field_slider_image['und'][0]['uri'];
+		$image_url = image_style_url('slider', $image);	
+		$thumb_url = image_style_url('thumbnail', $image);		
+
+
+
+		if(isset($body) && isset($title) && isset($link)){
+		
+			$content .= "<div  data-iview:image=\"$image_url\"  >";
+	
+			
+			// caption
+			$content .= "<div class='iview-caption caption7' data-x='0' data-y='0' data-width='300' data-height='390' data-transition='wipeRight'>
+			<h2><span>$title</span></h2>
+			<p class='hidden-phone slider-body'>$body</p> <br/>
+			<span class='slider-body'>$link</span>
+			</div>";
+			
+			$content .= '</div>';
+					
+		}
+
+		if(isset($title) && (isset($body) && empty($link))){
+			
+			$content .= "<div  data-iview:image=\"$image_url\"  >";
+			
+			//caption
+			$content .= "<div class='iview-caption caption7' data-x='0' data-y='0' data-width='300' data-height='390' data-transition='wipeRight'>
+			<h2><span>$title</span></h2>
+			<p class='hidden-phone slider-body'>$body</p> <br/>
+			</div>";
+						 
+			$content .= '</div>';
+		
+		}
+		
+		if(isset($title) && (empty($body) && isset($link))){
+			$content .= "<div data-iview:image=\"$image_url\"  >";
+			
+			//caption
+			$content .= "<div class='iview-caption caption7' data-x='0' data-y='0' data-width='300' data-height='390' data-transition='wipeRight'>
+			<h2><span>$title</span></h2> <br/>
+			<span class='slider-body'>$link</span>
+			</div>";
+						 
+			$content .= '</div>';			
+		}
+		
+		if(isset($title) && (empty($body) && empty($link))){
+			$content .= "<div data-iview:image=\"$image_url\"  >";
+			
+			//caption
+			$content .= "<div class='iview-caption caption7' data-x='0' data-y='0' data-width='300' data-height='390' data-transition='wipeRight'>
+			<h2><span>$title</span></h2>
+			</div>";
+			$content .= '</div>';		
+		}
+		
+		
+		// transitions
+		switch ($iteration_count) {
+			case '1':
+				$transition = "";
+				break;
+			case '2':
+				$transition = "data-iview:transition='block-drop-random'";
+				break;
+			case '3':
+				$transition = 'data-iview:transition="zigzag-drop-top,zigzag-drop-bottom"';
+				break;
+			case '4':
+				$transition = 'data-iview:transition="strip-right-fade,strip-left-fade"';
+				break;
+			case '5':
+				$transition = 'data-iview:transition="zigzag-drop-top,zigzag-drop-bottom"';
+				break;
+			
+		}
+		
+		$iteration_count++;
+					
+	}
+	
+	return $header . $content . $footer ;	
+}
+
+
+
+
+// Nivo Slider loader
+function get_nivo_slider_content(){
+	
+	drupal_add_css(drupal_get_path('theme', 'icompany') .'/sliders/nivo/themes/bar/bar.css', 'theme');
+	drupal_add_css(drupal_get_path('theme', 'icompany') .'/sliders/nivo/nivo-slider.css', 'theme');
+	drupal_add_js(drupal_get_path('theme', 'icompany') . '/sliders/nivo/jquery.nivo.slider.js', array('type' => 'file', 'scope' => 'header', 'group' => 'JS_LIBRARY', 'weight' => 27));
+	drupal_add_js('
+	(function ($) {
+	   $(window).load(function() {  $(\'#slider\').nivoSlider({effect: \'random\', slices: 15, boxCols: 6, boxRows: 4, pauseTime: 5000, animSpeed: 500,  });});
+	})(jQuery);
+	', array('type' => 'inline', 'scope' => 'header', 'weight' => 50));
+	
+	$result = db_query_range('SELECT n.nid FROM {node} n WHERE n.type = :ntype AND n.status = 1 ORDER BY created DESC', 0, 5, array(':ntype' => 'slider'));
+
+	$content = '';
+
+	
+    $header = '<div class="slider-wrapper theme-bar">  <div id="slider" class="nivoSlider">';
+    	
+    $caption_id = 1;
+	$caption = array(); // caption array
+	
+	
+	foreach ($result as $record) {
+	    $node = node_load($record->nid);	
+
+		// Break the loop if there is no post in slider content type
+		if(!$node->nid){
+			$content .= t("Make at least one published post of Slider content tyle. Go to admin panel and add a slider content. ");
+			return;
+		}
+		// Title
+		$title = $node->title;
+		
+		// Body
+		if(array_key_exists('und', $node->body)){
+		$body_full = $node->body['und'][0]['safe_value'];
+		$body_full = strip_tags($body_full, '<a>');
+		$body = substr($body_full,0,250).'...';
+		}
+		
+		
+		// Slide Link
+		if(array_key_exists('und', $node->field_slide_link)){
+		$link = $node->field_slide_link['und'][0]['safe_value'];
+		}
+		
+		// Image path
+		$image = $node->field_slider_image['und'][0]['uri'];
+		$image_url = image_style_url('slider', $image);		
+		
+		// print img tag for nivo
+		$content .= "<img src=\"$image_url\" data-thumb=\"$image_url\" alt=\"\" title=\"" . "#htmlcaption" . $caption_id . "\" />";
+		
+		
+		
+		// Prepare caption array	
+		if(isset($body) && isset($title) && isset($link)){			
+			$caption_body = "<div class='slider-body nivo-caption-body hidden-phone'>$body</div> ";
+			$caption_link = "<div class='nivo-caption-link slider-link '><a class='btn btn-theme btn-large' href=\"$link\">Read More</a></div> ";			
+			$caption[] = "<div id=\"" . "htmlcaption" . $caption_id . "\" class=\"nivo-html-caption\"><div class=\"nivo-caption-inner\">" . "<div class='nivo-caption-title slider-title '>$title</div>" . $caption_body . $caption_link ." </div></div>";	
+		}
+
+		if(isset($title) && (isset($body) && empty($link))){			
+			$caption_body = "<div class='slider-body nivo-caption-body hidden-phone'>$body</div> ";			
+			$caption[] = "<div id=\"" . "htmlcaption" . $caption_id . "\" class=\"nivo-html-caption\"><div class=\"nivo-caption-inner\">" . "<div class='nivo-caption-title slider-title '>$title</div>" . $caption_body  ." </div></div>";	
+		}
+		
+		if(isset($title) && (empty($body) && isset($link))){			
+			$caption_link = "<div class='slider-link nivo-caption-link'><a class='btn btn-theme btn-large' href=\"$link\">Read More</a></div> ";			
+			$caption[] = "<div id=\"" . "htmlcaption" . $caption_id . "\" class=\"nivo-html-caption\"><div class=\"nivo-caption-inner\">" . "<div class='nivo-caption-title slider-title '>$title</div>"  . $caption_link ." </div></div>";	
+		}
+		
+		if(isset($title) && (empty($body) && empty($link))){			
+			$caption[] = "<div id=\"" . "htmlcaption"  . $caption_id . "\" class=\"nivo-html-caption\"><div class=\"nivo-caption-inner\">" . "<div class='nivo-caption-title slider-title '>$title</div>"  ."</div></div>";	
+		}
+		
+		$caption_id++;
+	}
+
+	
+	$footer = '</div></div>';
+	
+	$slider_images = $header . $content . $footer;
+
+	
+	$capt = '';
+	foreach($caption as $eachCaption){
+		$capt .= $eachCaption;
+	}
+	
+	return $slider_images . $capt;
+	
+	
+}
+
+
+// piecemaker.xml rebuild
+
+function rebuild_piecemaker_xml() {
+	$path = $_SERVER['DOCUMENT_ROOT'];
+
+	$path = rtrim($path, "/\\");
+
+	$file = $path  . base_path() .  drupal_get_path('theme', 'icompany') . '/sliders/piecemaker/piecemaker.xml' or die();
+
+	// open the file
+	$fp = fopen($file, 'w+');
+
+	$text = 'empty';
+
+	$fout = fwrite($fp, $text);
+
+	fclose($fp);
+}
+
+// flush piecemaker xml
+function icompany_module_node_insert($node) {
+	if ($node -> type == 'slider') {
+		rebuild_piecemaker_xml();
+	}
+}
+
+function icompany_module_node_update($node) {
+	if ($node -> type == 'slider') {
+		rebuild_piecemaker_xml();
+	}
+}
+
+function icompany_module_node_delete($node) {
+	if ($node -> type == 'slider') {
+		rebuild_piecemaker_xml();
+	}
+}
+/*temporary*/
+function hide_all_blocks(){
+	return FALSE;
+}
